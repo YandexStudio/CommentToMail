@@ -233,7 +233,7 @@ class CommentToMail_Action extends Typecho_Widget implements Widget_Interface_Do
 
                 $mailer->Host     = $this->_cfg->host;
                 $mailer->Port     = $this->_cfg->port;
-                $mailer->Username = $this->_cfg->user;
+                $mailer->Username = $this->_cfg->frommail;
                 $mailer->Password = $this->_cfg->pass;
 
                 break;
