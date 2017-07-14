@@ -91,8 +91,15 @@ class CommentToMail_Plugin implements Typecho_Plugin_Interface
                 ->addRule('isInteger', _t('端口号必须是纯数字')));
 
         $user = new Typecho_Widget_Helper_Form_Element_Text('user', NULL, NULL,
-                _t('SMTP用户'),_t('SMTP服务验证用户名,一般为邮箱名如：youname@domain.com'));
+                _t('SMTP用户名'),_t('SMTP服务验证用户名,一般为邮箱名'));
         $form->addInput($user->addRule('required', _t('SMTP服务验证用户名')));
+        
+        /*
+        适配Sendgrid
+        $frommail = new Typecho_Widget_Helper_Form_Element_Text('user', NULL, NULL,
+                _t('SMTP发件地址'),_t('SMTP发件地址，留空则使用用户名'));
+        $form->addInput($frommail);
+        */
 
         $pass = new Typecho_Widget_Helper_Form_Element_Password('pass', NULL, NULL,
                 _t('SMTP密码'));
